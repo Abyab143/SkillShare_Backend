@@ -28,6 +28,23 @@ export const getAllHack = async (req, res) => {
   }
 };
 
+export const getHack = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const hack = await Hack.findById(id);
+    if (!hack) {
+      return res.status(404).send("There is no Hackathon found");
+    }
+    return res.status(200).json({
+      sucess: true,
+      message: "Your event ",
+      hack,
+    });
+  } catch (err) {
+    return res.status(400).send("Something wrong in  Hackathons details");
+  }
+};
+
 export const getHomeHack = async (req, res) => {
   try {
     const hack = await Hack.find().limit(3);
