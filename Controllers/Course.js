@@ -28,6 +28,25 @@ export const getAllcourse = async (req, res) => {
   }
 };
 
+
+export const getCourse = async (req, res) => {
+  try {
+    const id = await req.params.id;
+    const course = await Course.findById(id);
+    if (!course) {
+      return res.status(404).send("There is no couse");
+    }
+    return res.status(200).json({
+      sucess: true,
+      message: "Your event ",
+      course,
+    });
+  } catch (err) {
+    return res.status(400).send("Something wrong in  course details");
+  }
+};
+
+
 export const getHomeCourse = async (req, res) => {
   try {
     const course = await Course.find().limit(3);
