@@ -27,6 +27,23 @@ export const getAllevent = async (req, res) => {
   }
 };
 
+export const getEvent = async (req, res) =>{
+  try {
+    const id = req.params.id;
+    const event = await Event.findById(id);
+    if (!event) {
+      return res.status(404).send("There is no Event");
+    }
+    return res.status(200).json({
+      sucess: true,
+      message: "Your event ",
+      event,
+    });
+  } catch (err) {
+    return res.status(400).send("Something wrong in  Event details");
+  }
+}
+
 export const getHomeEvent = async (req, res) => {
   try {
     const event = await Event.find().limit(3);
