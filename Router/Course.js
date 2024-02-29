@@ -6,7 +6,7 @@ const router = express.Router();
 //Create a new Course
 router.post("/course/create",createCourse);
 router.get("/course/allcourse",getAllcourse);
-router.get("/course/getCourse",getCourse);
+router.get("/course/getCourse/:id",getCourse);
 router.delete("/course/delete/:id",deleteCourse);
 router.put("/course/update/:id",updateCourse);
 router.get("/course/homeCourse",getHomeCourse);
