@@ -30,7 +30,7 @@ export const login = async (req, res) => {
       const token = jwt.sign({ id: user._id }, process.env.JWT);
     const { password, ...others } = user._doc;
 
-      if(response){
+      if(token){
     res.cookie("access_token", token);
       
       return res.status(200)
