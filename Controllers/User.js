@@ -38,8 +38,8 @@ export const login = async (req, res) => {
         token,
         others
       }
-            }
         );
+      }
     }
    }
   } catch (err) {
