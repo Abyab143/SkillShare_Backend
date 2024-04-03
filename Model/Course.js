@@ -22,6 +22,10 @@ const courseSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    notes:{
+      type:String
+    },
+    
   },
   { timestamps: true }
 );
