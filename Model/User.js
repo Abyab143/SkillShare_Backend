@@ -23,6 +23,9 @@ const UserSchema = new mongoose.Schema(
     isAdmin:{
       type: Boolean,
       default: false,
+    },
+    enrollCourse:{
+      type:[]
     }
   },
   { timestamps: true }
