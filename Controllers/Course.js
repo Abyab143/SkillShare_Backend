@@ -44,7 +44,37 @@ export const getCourse = async (req, res) => {
     return res.status(400).send("Something wrong in  course details");
   }
 };
+//find course by name
+export const getCourseByName = async (req, res) => {
+  try {
+    const course = await Course.findOne({ courseName: req.params.name });
+    if (!course) {
+      return res.status(404).send("Course not Available of this name");
+    }
+    return res.status(200).json({
+      message: "course found sucessfully",
+      course: course,
+    });
+  } catch (err) {
+    return res.status(400).send("Something wrong to found course");
+  }
+};
 
+//find course by type
+export const getCourseByType = async (req, res) => {
+  try {
+    const course = await Course.find({ courseType: req.params.type });
+    if (!course) {
+      return res.status(404).send("Course not Available of this name");
+    }
+    return res.status(200).json({
+      message: "course found sucessfully",
+      course: course,
+    });
+  } catch (err) {
+    return res.status(400).send("Something wrong to found course");
+  }
+};
 export const getHomeCourse = async (req, res) => {
   try {
     const course = await Course.find().limit(3);
