@@ -1,5 +1,5 @@
 import express from 'express';
-import {createCourse,getAllcourse,deleteCourse,updateCourse,getHomeCourse,getCourse} from "../Controllers/Course.js";
+import {createCourse,getAllcourse,deleteCourse,updateCourse,getHomeCourse,getCourse,enrollCourse} from "../Controllers/Course.js";
 
 const router = express.Router();
 
@@ -10,5 +10,6 @@ router.get("/course/getCourse/:id",getCourse);
 router.delete("/course/delete/:id",deleteCourse);
 router.put("/course/update/:id",updateCourse);
 router.get("/course/homeCourse",getHomeCourse);
+router.put("/course/enrollCourse/:courseid/:userid",enrollCourse);
 
 export default router;
